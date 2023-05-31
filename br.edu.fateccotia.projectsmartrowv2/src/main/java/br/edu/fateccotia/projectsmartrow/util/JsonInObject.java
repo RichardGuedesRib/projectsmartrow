@@ -30,17 +30,13 @@ public class JsonInObject {
 		estabelecimento.setImagemEstabelecimento(null);
 		estabelecimento.setFaturamento(null);
 
-		System.out.println("INSTANCIOU ESTABELECIMENTO<<<<<<<<<<<<<<<<<<<<<<<");
-		System.out.println("STRING RECEBIDA = " + stringSb);
 		if (obj.has("cardapio") && !obj.isNull("cardapio")) {
 			JSONObject objCardapio = obj.getJSONObject("cardapio");
 			Cardapio cardapio = new Cardapio();
 			List<Pratos> listPratos = new ArrayList<>();
 
 			JSONArray pratosArray = objCardapio.getJSONArray("pratos");
-			System.out.println("INICIOU PRATO<<<<<<<<<<<<<<<<<<<<<<<");
 			if (pratosArray.isNull(0) != true) {
-				System.out.println("INICIOU IFPRATOPRATO<<<<<<<<<<<<<<<<<<<<<<<");
 				for (int i = 0; i < pratosArray.length(); i++) {
 					JSONObject pratojson = pratosArray.getJSONObject(i);
 					Pratos newPrato = new Pratos();
@@ -59,9 +55,7 @@ public class JsonInObject {
 			}
 
 			JSONArray listobjBebidas = objCardapio.getJSONArray("bebidas");
-			System.out.println("INICIOU BEBIDA<<<<<<<<<<<<<<<<<<<<<<<");
 			if (listobjBebidas.isNull(0) != true) {
-				System.out.println("INICIOU LOOPBEBIDA<<<<<<<<<<<<<<<<<<<<<<<");
 				List<Bebidas> listBebidas = new ArrayList<>();
 				for (int i = 0; i < listobjBebidas.length(); i++) {
 					JSONObject objBebidas = listobjBebidas.getJSONObject(i);
@@ -85,7 +79,6 @@ public class JsonInObject {
 		}
 		
 		if(obj.has("endereco") && !obj.isNull("endereco") && !obj.getJSONObject("endereco").isEmpty()) {
-			System.out.println("ENTROU NO ENDERECO <<<<<<<<<<<<<<<<<<<<<<<<");
 			JSONObject end = obj.getJSONObject("endereco");
 			
 			Endereco endereco = new Endereco();
@@ -101,10 +94,8 @@ public class JsonInObject {
 			endereco.setReferencia(end.getString("referencia"));
 			
 			estabelecimento.setEndereco(endereco);
-			System.out.println("add  ENDERECO <<<<<<<<<<<<<<<<<<<<<<<<");
 			
 		}
-		System.out.println("FINALIZOU <<<<<<<<<<<<<<<<<<<<<<<<");
 
 		return estabelecimento;
 	}

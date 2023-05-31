@@ -86,8 +86,6 @@ public class PratosEstabelecimentoViewController implements Initializable {
 						+ MenuInicialEstabelecimentoScreen.getEstabelecimento().getIDEstabelecimento());
 				listProdutosObservable = FXCollections.observableArrayList(buscarListaPratos);
 				listProdutos.setItems(listProdutosObservable);
-				System.out.println(MenuInicialEstabelecimentoScreen.getEstabelecimento().getCardapio().getPratos());
-				System.out.println(MenuInicialEstabelecimentoScreen.getEstabelecimento().getCardapio().getBebidas());
 			} else {
 				labelCheckList.setText("Não existe Pratos cadastrados!");
 			}
