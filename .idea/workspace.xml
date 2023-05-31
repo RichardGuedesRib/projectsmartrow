@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="17c29401-7e47-4fe5-8dd3-7a9d8976be32" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/br.edu.fateccotia.projectsmartrow/data/projectsmartrow.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/br.edu.fateccotia.projectsmartrow/data/projectsmartrow.mv.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/br.edu.fateccotia.projectsmartrow/data/projectsmartrow.trace.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/br.edu.fateccotia.projectsmartrow/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/br.edu.fateccotia.projectsmartrow/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/br.edu.fateccotia.projectsmartrow/src/main/java/br/edu/fateccotia/projectsmartrow/config/TestConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/br.edu.fateccotia.projectsmartrow/src/main/java/br/edu/fateccotia/projectsmartrow/config/TestConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/br.edu.fateccotia.projectsmartrow/src/main/java/br/edu/fateccotia/projectsmartrow/util/EstabelecimentoTeste.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/br.edu.fateccotia.projectsmartrow/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/br.edu.fateccotia.projectsmartrow/src/main/resources/application.properties" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="2P63LK64wHAft2CKbHZi5oErqz1" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Faculdade/OneDrive - Fatec Centro Paula Souza/Projeto Interdisciplinar Arquivos/br.edu.fatec.projectsmartrow&quot;
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="17c29401-7e47-4fe5-8dd3-7a9d8976be32" name="Changes" comment="" />
+      <created>1682763646279</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1682763646279</updated>
+    </task>
+    <servers />
+  </component>
+</project>
