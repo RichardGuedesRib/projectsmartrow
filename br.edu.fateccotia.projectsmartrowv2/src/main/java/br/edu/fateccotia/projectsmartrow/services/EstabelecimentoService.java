@@ -8,12 +8,16 @@ import org.springframework.stereotype.Service;
 
 import br.edu.fateccotia.projectsmartrow.model.Estabelecimento;
 import br.edu.fateccotia.projectsmartrow.repository.EstabelecimentoRepository;
+import br.edu.fateccotia.projectsmartrow.securiy.AutenticarController;
 
 @Service
 public class EstabelecimentoService {
 
 	@Autowired
 	EstabelecimentoRepository estabelecimentoRepository;
+	
+	@Autowired
+	AutenticarController autenticarController;
 	
 	public List<Estabelecimento> findAll() {
 		return estabelecimentoRepository.findAll();
@@ -71,14 +75,11 @@ public class EstabelecimentoService {
 		if (estabelecimento.getEndereco() != null) {
 			newEst.setEndereco(estabelecimento.getEndereco());
 		}
-		if (estabelecimento.getMesas() != null) {
-			newEst.setMesas(estabelecimento.getMesas());
-		}
+//		if (estabelecimento.getMesas() != null) {
+//			newEst.setMesas(estabelecimento.getMesas());
+//		}
 		if (estabelecimento.getCategoriaEstabelecimento() != null) {
 			newEst.setCategoriaEstabelecimento(estabelecimento.getCategoriaEstabelecimento());
-		}
-		if (estabelecimento.getSenha() != null) {
-			newEst.setSenha(estabelecimento.getSenha());
 		}
 		if (estabelecimento.isEmailIsValid() != false) {
 			newEst.setEmailIsValid(estabelecimento.isEmailIsValid());
@@ -88,6 +89,12 @@ public class EstabelecimentoService {
 
 	public void deleteById(Integer id) {
 		estabelecimentoRepository.deleteById(id);
+	}
+	
+	public void atualizarSenha(Integer id, String senha) {
+		Optional<Estabelecimento> estabelecimento = estabelecimentoRepository.findById(id);
+		estabelecimento.get().setSenha(autenticarController.encriptar(senha));
+		estabelecimentoRepository.save(estabelecimento.get());
 	}
 
 	

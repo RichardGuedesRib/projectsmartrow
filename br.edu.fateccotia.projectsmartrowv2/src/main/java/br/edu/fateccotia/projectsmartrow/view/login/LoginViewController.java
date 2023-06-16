@@ -9,6 +9,7 @@ import br.edu.fateccotia.projectsmartrow.InicialJavafx;
 import br.edu.fateccotia.projectsmartrow.util.JsonInObject;
 import br.edu.fateccotia.projectsmartrow.util.Requests;
 import br.edu.fateccotia.projectsmartrow.view.cliente.screens.CadastrarClienteScreenEmailSenha;
+import br.edu.fateccotia.projectsmartrow.view.cliente.screens.MenuInicialClienteScreen;
 import br.edu.fateccotia.projectsmartrow.view.estabelecimento.screens.CadastrarEstabelecimentoEmailSenhaScreen;
 import br.edu.fateccotia.projectsmartrow.view.estabelecimento.screens.MenuInicialEstabelecimentoScreen;
 import javafx.fxml.FXML;
@@ -92,25 +93,33 @@ public class LoginViewController implements Initializable {
 
 		if (code == 200) {
 			String retornoBusca = Requests.GET("clientes/email/" + textEmail.getText());
+			if (retornoBusca != null) {
+				MenuInicialClienteScreen menuCliente = new MenuInicialClienteScreen();
+				MenuInicialClienteScreen.setCliente(JsonInObject.stringToCliente(retornoBusca));
+				InicialJavafx.getStage().close();
+
+				try {
+					menuCliente.start(new Stage());
+				} catch (Exception e) {
+					e.getStackTrace();
+				}
+			} else {
+				retornoBusca = Requests.GET("estabelecimentos/email/" + textEmail.getText());
 				if (retornoBusca != null) {
-					labelStatus.setText("Usuário Logado! + CLiente");
-				} else {
-					retornoBusca = Requests.GET("estabelecimentos/email/" + textEmail.getText());
-					if (retornoBusca != null) {
-						System.out.println(retornoBusca);
-						MenuInicialEstabelecimentoScreen menuEstabelecimento = new MenuInicialEstabelecimentoScreen();
-						MenuInicialEstabelecimentoScreen.setEstabelecimento(JsonInObject.stringToEstabelecimento(retornoBusca));
-						
-						InicialJavafx.getStage().close();
-						try {
-							menuEstabelecimento.start(new Stage());
-						}
-						catch (Exception e) {
-							e.getStackTrace();
-						}
+					System.out.println(retornoBusca);
+					MenuInicialEstabelecimentoScreen menuEstabelecimento = new MenuInicialEstabelecimentoScreen();
+					MenuInicialEstabelecimentoScreen
+							.setEstabelecimento(JsonInObject.stringToEstabelecimento(retornoBusca));
+
+					InicialJavafx.getStage().close();
+					try {
+						menuEstabelecimento.start(new Stage());
+					} catch (Exception e) {
+						e.getStackTrace();
 					}
 				}
-			
+			}
+
 		} else if (code == 401) {
 			labelStatus.setText("Usuário ou Senha Inválidos");
 		} else if (code == 404) {
@@ -141,7 +150,7 @@ public class LoginViewController implements Initializable {
 			}
 
 		});
-		
+
 		linkCadastrarEstabelecimento.setOnMouseClicked((MouseEvent e) -> {
 			CadastrarEstabelecimentoEmailSenhaScreen cadastrarCliente = new CadastrarEstabelecimentoEmailSenhaScreen();
 			InicialJavafx.fecharStage();
@@ -153,8 +162,7 @@ public class LoginViewController implements Initializable {
 			}
 
 		});
-		
-		
+
 		btEncerrar.setOnMouseClicked(event -> {
 			System.exit(0);
 		});

@@ -121,9 +121,8 @@ public Endereco(String cep, String logradouro, String numero, String complemento
 
 	@Override
 	public String toString() {
-		return "Endereco [cep=" + cep + ", logradouro=" + logradouro + ", numero=" + numero + ", complemento="
-				+ complemento + ", referencia=" + referencia + ", bairro=" + bairro + ", localidade=" + localidade
-				+ ", uf=" + uf + ", pais=" + pais + "]";
+		return logradouro + " n. " + numero
+				+ "\n" + bairro + " - " + localidade + " - " + uf;
 	}
 	
 	public void exibirEndereco() {  //Metodo usado para imprimir um endereço. Nesse em espeial, usei a StringBuilder para ficar mais apresentavel a estrutura do print

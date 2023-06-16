@@ -85,6 +85,8 @@ public class BebidasEstabelecimentoViewController implements Initializable {
 						+ MenuInicialEstabelecimentoScreen.getEstabelecimento().getIDEstabelecimento());
 				listProdutosObservable = FXCollections.observableArrayList(buscarListaBebidas);
 				listProdutos.setItems(listProdutosObservable);
+				System.out.println(MenuInicialEstabelecimentoScreen.getEstabelecimento().getCardapio().getPratos());
+				System.out.println(MenuInicialEstabelecimentoScreen.getEstabelecimento().getCardapio().getBebidas());
 			} else {
 				labelCheckList.setText("Não existe Bebidas cadastrados!");
 			}

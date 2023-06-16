@@ -104,12 +104,14 @@ public class CadastrarClienteEnderecoViewController implements Initializable {
 				endereco.setComplemento(textComplemento.getText());
 				endereco.setReferencia(textReferencia.getText());
 				
-				String teste = Requests.POSTEndereco("enderecos?cep=" + endereco.getCep() 
+				String enderecoString = Requests.POSTEndereco("enderecos?cep=" + endereco.getCep() 
 				+ "&num=" + endereco.getNumero() 
 				+ "&comp=" + endereco.getComplemento()
 				+ "&ref=" + endereco.getReferencia());
 				
-				JSONObject obj = new JSONObject(teste);
+				System.out.println(enderecoString);
+				
+				JSONObject obj = new JSONObject(enderecoString);
 				JSONObject atribEnd = new JSONObject();
 				atribEnd.put("endereco", obj);
 				

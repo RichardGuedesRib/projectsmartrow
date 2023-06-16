@@ -70,7 +70,9 @@ public class Mesas {
 
 	@Override
 	public String toString() {
-		return "Mesas : Numero da mesa: " + numMesa + ", Capacidade de Pessoas: " + capacidadePessoas + "]";
+		return 	"IDMesa: " + IDMesa
+				+"\nNúmero da mesa: " + numMesa 
+				+"\nCapacidade de Pessoas: " + capacidadePessoas;
 	}
 
 	
@@ -89,6 +91,8 @@ public class Mesas {
 	public void setNomeArquivoQr(String nomeArquivoQr) {
 		this.nomeArquivoQr = nomeArquivoQr;
 	}
+	
+	
 
 	
 

@@ -4,6 +4,7 @@ import org.json.JSONObject;
 
 import br.edu.fateccotia.projectsmartrow.model.Cliente;
 import br.edu.fateccotia.projectsmartrow.services.ServidorService;
+import br.edu.fateccotia.projectsmartrow.util.JsonInObject;
 import br.edu.fateccotia.projectsmartrow.util.Requests;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -64,6 +65,7 @@ public class CadastrarClienteDadosScreen extends Application {
 		newCliente.put("cpf", cliente.getCpf());
 		newCliente.put("telefone", cliente.getTelefone());
 		newCliente.put("endereco", endereco);
+		
 		
 		status = Requests.POST(newCliente, enderecoRequest);
 		

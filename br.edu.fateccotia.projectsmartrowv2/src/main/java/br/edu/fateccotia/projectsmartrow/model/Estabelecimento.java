@@ -195,11 +195,17 @@ public class Estabelecimento {
 
 	@Override
 	public String toString() {
-		return "Estabelecimento [IDEstabelecimento =" + IDEstabelecimento + ", nome=" + nome + ", cnpj=" + cnpj
-				+ ", telefone=" + telefone + ", telefone2=" + telefone2 + ", email=" + email + ", horarioFuncionamento="
-				+ horarioFuncionamento + ", imagemEstabelecimento=" + imagemEstabelecimento
-				+ ", faturamento=" + faturamento + ", endereco=" + endereco + ", categoriaEstabelecimento="
-				+ categoriaEstabelecimento + "]" + "IMPRIMINDO OS Pratos: " + getCardapio().getPratos();
+		return  nome  
+				+ "\nTelefone: " + telefone + " Telefone2: " + telefone2 
+				+ "\nHorário: " + horarioFuncionamento
+				+ "\n" +endereco;
+	}
+	
+	public String exibirEstabelecimento() {
+		return  nome  
+				+ "\nTelefone: " + telefone 
+				+ "\nHorário: " + horarioFuncionamento
+				+ "\n" +endereco;
 	}
 
 	public String getSenha() {

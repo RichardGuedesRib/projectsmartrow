@@ -30,6 +30,55 @@ public class ValidadorDadosEntrada {
 		return true;
 	}
 
+	public static boolean validaNumero(String numero) {
+		if (numero == null || numero.isEmpty()) {
+			return false;
+		}
+		if (!numero.matches("\\d+")) {
+			return false;
+		}
+		return true;
+	}
+
+	public static boolean validaCartao(String cartao) {
+		if (cartao == null || cartao.isEmpty()) {
+			return false;
+		}
+		if (!cartao.matches("\\d+")) {
+			return false;
+		}
+		if (cartao.length() != 16) {
+			return false;
+		}
+		return true;
+	}
+
+	public static boolean validaValidade(String validade) {
+		if (validade == null || validade.isEmpty()) {
+			return false;
+		}
+		if (!validade.matches("\\d+")) {
+			return false;
+		}
+		if (validade.length() != 6) {
+			return false;
+		}
+		return true;
+	}
+
+	public static boolean validaCodigo(String codigo) {
+		if (codigo == null || codigo.isEmpty()) {
+			return false;
+		}
+		if (!codigo.matches("\\d+")) {
+			return false;
+		}
+		if (codigo.length() != 3) {
+			return false;
+		}
+		return true;
+	}
+
 	public static boolean validaCpf(String cpf) {
 		if (cpf == null || cpf.isEmpty()) {
 			return false;

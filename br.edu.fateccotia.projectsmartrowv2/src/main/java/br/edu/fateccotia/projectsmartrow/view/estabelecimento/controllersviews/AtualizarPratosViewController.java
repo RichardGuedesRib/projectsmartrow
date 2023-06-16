@@ -157,9 +157,7 @@ public class AtualizarPratosViewController implements Initializable {
 			MenuInicialEstabelecimentoViewController.funcaoNaoImplementada();
 		});
 		
-		btnVoltar.setOnMouseClicked(event -> {
-			ErroJavafx.funcaoNaoImplementada();
-		});
+		
 	}
 	
 	

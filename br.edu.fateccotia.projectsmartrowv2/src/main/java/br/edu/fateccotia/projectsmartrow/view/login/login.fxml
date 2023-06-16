@@ -18,7 +18,7 @@
 		</ImageView>
 		<PasswordField fx:id="textSenha" alignment="CENTER" layoutX="64.0" layoutY="280.0" prefHeight="24.0" prefWidth="212.0" promptText="senha" style="-fx-border-radius: 30;" styleClass="textFormat" stylesheets="@../style.css" />
 		<Button fx:id="btnEntrar" layoutX="64.0" layoutY="339.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="212.0" styleClass="btnEntrar" stylesheets="@../style.css" text="Entrar" />
-		<Hyperlink fx:id="linkCadastrarUsuario" layoutX="95.0" layoutY="444.0" text="Cadastrar como usuário" />
+		<Hyperlink fx:id="linkCadastrarUsuario" layoutX="95.0" layoutY="444.0" text="Cadastrar como cliente" />
 		<Hyperlink fx:id="linkCadastrarEstabelecimento" layoutX="68.0" layoutY="483.0" text="Cadastrar como estabelecimento" />
 		<TextField fx:id="textEmail" alignment="CENTER" layoutX="64.0" layoutY="230.0" prefHeight="24.0" prefWidth="212.0" promptText="email" style="-fx-border-radius: 30;" styleClass="textFormat" stylesheets="@../style.css" />
 		<Label layoutX="98.0" layoutY="172.0" text="Como deseja continuar?" />

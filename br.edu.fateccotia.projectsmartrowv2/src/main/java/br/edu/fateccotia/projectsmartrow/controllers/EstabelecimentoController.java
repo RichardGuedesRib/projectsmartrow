@@ -1,6 +1,7 @@
 package br.edu.fateccotia.projectsmartrow.controllers;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -115,6 +116,13 @@ public class EstabelecimentoController {
 		}
 		Estabelecimento newEst = estabelecimentoService.atualizarEstabelecimento(id, estabelecimento);
 		return ResponseEntity.ok().body(newEst);
+	}
+	
+	@PutMapping(value = "/atualizarsenha/{id}")
+	public ResponseEntity<?> atualizarSenha(@PathVariable Integer id, @RequestBody Map<String, String> senha){
+		String novaSenha = senha.get("senha");
+		estabelecimentoService.atualizarSenha(id, novaSenha);
+		return ResponseEntity.ok().body("Senha Alterada");
 	}
 	
 	@DeleteMapping(value = "/{id}")

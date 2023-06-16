@@ -3,10 +3,13 @@ package br.edu.fateccotia.projectsmartrow.view.estabelecimento.controllersviews;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import br.edu.fateccotia.projectsmartrow.InicialJavafx;
 import br.edu.fateccotia.projectsmartrow.util.JsonInObject;
 import br.edu.fateccotia.projectsmartrow.util.Requests;
+import br.edu.fateccotia.projectsmartrow.view.estabelecimento.screens.AtualizarCadastroEstabelecimentoScreen;
 import br.edu.fateccotia.projectsmartrow.view.estabelecimento.screens.BebidasEstabelecimentoScreen;
 import br.edu.fateccotia.projectsmartrow.view.estabelecimento.screens.MenuInicialEstabelecimentoScreen;
+import br.edu.fateccotia.projectsmartrow.view.estabelecimento.screens.MesasEstabelecimentoScreen;
 import br.edu.fateccotia.projectsmartrow.view.estabelecimento.screens.PratosEstabelecimentoScreen;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -60,11 +63,9 @@ public class MenuInicialEstabelecimentoViewController implements Initializable {
 	@FXML
 	private Label labelEstabelecimento;
 
-	
-
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		
+
 		String nome = null;
 		if (MenuInicialEstabelecimentoScreen.getEstabelecimento() == null) {
 			nome = "null";
@@ -82,60 +83,81 @@ public class MenuInicialEstabelecimentoViewController implements Initializable {
 
 		btnRelatorioVendas.setOnMouseClicked(event -> {
 			funcaoNaoImplementada();
-			});
-			
+		});
+
 		btnPratos.setOnMouseClicked(event -> {
 			PratosEstabelecimentoScreen pratosEstabelecimento = new PratosEstabelecimentoScreen();
 			MenuInicialEstabelecimentoScreen.getStage().close();
 			try {
 				pratosEstabelecimento.start(new Stage());
-			}
-			catch(Exception e) {
+			} catch (Exception e) {
 				e.getStackTrace();
-				}
+			}
 		});
-		
+
 		btnBebidas.setOnMouseClicked(event -> {
-		BebidasEstabelecimentoScreen bebidasEstabelecimento = new BebidasEstabelecimentoScreen();
+			BebidasEstabelecimentoScreen bebidasEstabelecimento = new BebidasEstabelecimentoScreen();
 			MenuInicialEstabelecimentoScreen.getStage().close();
 			try {
 				bebidasEstabelecimento.start(new Stage());
+			} catch (Exception e) {
+				e.getStackTrace();
+			}
+		});
+
+		btnMesas.setOnMouseClicked(event -> {
+			MesasEstabelecimentoScreen mesasEstabelecimento = new MesasEstabelecimentoScreen();
+			MenuInicialEstabelecimentoScreen.getStage().close();
+			try {
+				mesasEstabelecimento.start(new Stage());
+			} catch (Exception e) {
+				e.getStackTrace();
+			}
+		});
+
+		btnAtualizarCadastro.setOnMouseClicked(event -> {
+			AtualizarCadastroEstabelecimentoScreen atualizar = new AtualizarCadastroEstabelecimentoScreen();
+			MenuInicialEstabelecimentoScreen.getStage().close();
+			try {
+				atualizar.start(new Stage());
 			}
 			catch(Exception e) {
 				e.getStackTrace();
-				}
+			}
 		});
-		
-		btnMesas.setOnMouseClicked(event -> {
+
+		btnConfiguracoes.setOnMouseClicked(event -> {
 			funcaoNaoImplementada();
 		});
-		
-		btnAtualizarCadastro.setOnMouseClicked(event ->{
+
+		btnPromocoes.setOnMouseClicked(event -> {
 			funcaoNaoImplementada();
 		});
-		
-		btnConfiguracoes.setOnMouseClicked(event ->{
+
+		btnPedidosRecebidos.setOnMouseClicked(event -> {
 			funcaoNaoImplementada();
 		});
-		
-		btnPromocoes.setOnMouseClicked(event ->{
+
+		btnMesasAtendimento.setOnMouseClicked(event -> {
 			funcaoNaoImplementada();
 		});
-		
-		btnPedidosRecebidos.setOnMouseClicked(event ->{
+
+		btnChat.setOnMouseClicked(event -> {
 			funcaoNaoImplementada();
 		});
-		
-		btnMesasAtendimento.setOnMouseClicked(event ->{
-			funcaoNaoImplementada();
-		});
-		
-		btnChat.setOnMouseClicked(event ->{
-			funcaoNaoImplementada();
-		});
-		
-		btnVoltar.setOnMouseClicked(event ->{
-			funcaoNaoImplementada();
+
+		btnVoltar.setOnMouseClicked(event -> {
+			MenuInicialEstabelecimentoScreen.getStage().close();
+			MenuInicialEstabelecimentoScreen.setEstabelecimento(null);
+			InicialJavafx inicial = new InicialJavafx();
+			try {
+				inicial.start(new Stage());
+			}
+			catch (Exception e) {
+				e.getStackTrace();
+			}
+			
+			
 		});
 
 		btnEncerrar.setOnMouseClicked(event -> {
@@ -144,7 +166,6 @@ public class MenuInicialEstabelecimentoViewController implements Initializable {
 
 	}
 
-	
 	public static void funcaoNaoImplementada() {
 		Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setHeaderText("Função Não Implementada");
@@ -153,9 +174,10 @@ public class MenuInicialEstabelecimentoViewController implements Initializable {
 				+ "Estamos em desenvolvimento. Obrigado pela compreensão!");
 		alert.showAndWait();
 	}
-	
+
 	public static void atualizarEstabelecimentoServidor() {
-		String retorno = Requests.GET("estabelecimentos/email/" + MenuInicialEstabelecimentoScreen.getEstabelecimento().getEmail());
+		String retorno = Requests
+				.GET("estabelecimentos/email/" + MenuInicialEstabelecimentoScreen.getEstabelecimento().getEmail());
 		MenuInicialEstabelecimentoScreen.setEstabelecimento(JsonInObject.stringToEstabelecimento(retorno));
 	}
 

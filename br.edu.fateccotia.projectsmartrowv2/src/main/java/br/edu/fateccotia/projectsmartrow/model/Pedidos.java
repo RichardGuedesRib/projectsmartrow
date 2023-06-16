@@ -1,6 +1,7 @@
 package br.edu.fateccotia.projectsmartrow.model;
 
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -9,8 +10,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
@@ -24,20 +24,20 @@ public class Pedidos {
 	private Instant instant;
 	@OneToOne
 	private Cliente cliente;
+
 	@OneToOne
 	private Estabelecimento estabelecimento;
-	@OneToMany
-	//@JoinColumn(name = "idpedido")
-	private List<Pratos> listPratos;
-	@OneToMany
-	//@JoinColumn(name = "idpedido")
-	private List<Bebidas> listBebidas;
+	@ManyToMany
+	private List<Pratos> listPratos = new ArrayList<>();
+	@ManyToMany
+	private List<Bebidas> listBebidas = new ArrayList<>();
 	@OneToOne
 	private Mesas mesa;
 	private Double total;
-	
-	public Pedidos() {}
-	
+
+	public Pedidos() {
+	}
+
 	public Pedidos(Cliente cliente, Estabelecimento estabelecimento, Mesas mesa) {
 		this.instant = instant.now();
 		this.cliente = cliente;
@@ -102,24 +102,40 @@ public class Pedidos {
 	}
 
 	public Double getTotal() {
+		Double soma = 0.00;
+		if (listPratos != null) {
+			for (Pratos prato : listPratos) {
+				soma += prato.getValor();
+			}
+		}
+		if (listBebidas != null) {
+			for (Bebidas bebida : listBebidas) {
+				soma += bebida.getValor();
+			}
+		}
+		this.total = soma;
+
 		return total;
 	}
 
-	
-	
+	public void setListPratos(List<Pratos> listPratos) {
+		this.listPratos = listPratos;
+	}
+
+	public void setListBebidas(List<Bebidas> listBebidas) {
+		this.listBebidas = listBebidas;
+	}
+
 	public void setTotal() {
 		Double soma = 0.00;
-		for(Pratos prato : listPratos) {
+		for (Pratos prato : listPratos) {
 			soma += prato.getValor();
 		}
-		
-		for(Bebidas bebida : listBebidas) {
+
+		for (Bebidas bebida : listBebidas) {
 			soma += bebida.getValor();
 		}
 		this.total = soma;
 	}
-	
-	
-	
 
 }
